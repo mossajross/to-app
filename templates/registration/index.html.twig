@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegistrationController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="app/css/registration.css">
+{%  endblock %}
+
+{%  block nav %}
+{%  endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+
+
+        <div class="alert alert-info m-3" role="alert">
+            If you already have an account click to sign in <a href="{{ path('app_login') }}" class="btn btn-lg btn-primary ml-5">
+                Sign In
+            </a>
+        </div>
+
+
+        <div class="bg-info p-5 m-5 shadow-lg p-3 mb-5 bg-white rounded">
+          {{ form_start(form) }}
+
+          <div class="alert alert-info" role="alert">
+              Register and start using your App!
+          </div>
+
+           <div class="row">
+              <div class="col">
+                  {{ form_row(form.firstname) }}
+              </div>
+              <div class="col">
+
+                  {{ form_row(form.lastname) }}
+
+
+              </div>
+          </div>
+
+          <div class="row">
+
+              <div class="col-6">
+                  {{ form_row(form.password) }}
+              </div>
+
+              <div class="col-6">
+                  {{ form_row(form.email) }}
+              </div>
+
+              <div class="col">
+                  {{ form_row(form.save) }}
+
+
+              </div>
+
+
+          </div>
+
+
+      </div>
+
+        {{ form_end(form) }}
+
+      </div>
+
+
+
+
+    </div>
+{% endblock %}

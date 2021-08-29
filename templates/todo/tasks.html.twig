@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block body %}
+
+    <div class="container m-5 text-center ">
+
+        {%  if tasks | length > 0 %}
+            <div class="p-5 w-26 text-left text-light border border-primary rounded bg-danger">
+
+            {% for task in tasks  %}
+
+                 <blockquote class="border border-info p-3"  data-toggle="tooltip" data-placement="top" title="{{ task.description }}" >{{ task }} <div class="icon"> <i class="fas fa-trash" data-task="{{ task.id }}"></i></div> </blockquote>
+
+
+
+
+
+            {%  endfor %}
+            </div>
+        {%  else %}
+            <h1>No tasks available !</h1>
+            <a href={{path("create_task")}} class="btn btn-primary ml-3"> New Task </a>
+
+        {%  endif %}
+
+
+
+    </div>
+
+
+
+
+{%  endblock %}
+
+   {%  block javascripts %}
+       {{ parent()}}
+       <script src="{{ asset('app/js/app.js ') }}"></script>
+
+   {%  endblock %}
+
